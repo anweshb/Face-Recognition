@@ -2,7 +2,7 @@ import cv2
 cam = cv2.VideoCapture(0)
 detector=cv2.CascadeClassifier('E:\\Conda Projects\\FD\\haarcascade_frontalface_default.xml')
 
-Id= input('Enter your name: ')
+Id= int(input('Enter your ID: '))
 sampleNum=0
 while(True):
     ret, img = cam.read()
@@ -14,14 +14,14 @@ while(True):
         #incrementing sample number 
         sampleNum=sampleNum+1
         #saving the captured face in the dataset folder
-        cv2.imwrite("dataSet/User."+Id +'.'+ str(sampleNum) + ".jpg", gray[y:y+h,x:x+w])
+        cv2.imwrite("dataSet/User."+str(Id) +'.'+ str(sampleNum) + ".jpg", gray[y:y+h,x:x+w])
 
         cv2.imshow('frame',img)
     #wait for 100 miliseconds 
     if cv2.waitKey(100) & 0xFF == ord('q'):
         break
     # break if the sample number is morethan 20
-    elif sampleNum>100:
+    elif sampleNum>25:
         break
 cam.release()
 cv2.destroyAllWindows()
