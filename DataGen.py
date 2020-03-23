@@ -14,14 +14,14 @@ while(True):
         #incrementing sample number 
         sampleNum=sampleNum+1
         #saving the captured face in the dataset folder
-        cv2.imwrite("dataSet/User."+str(Id) +'.'+ str(sampleNum) + ".jpg", gray[y:y+h,x:x+w])
+        cv2.imwrite("E:\\Conda Projects\\FD\\Dataset\\User."+str(Id) +'.'+ str(sampleNum) + ".jpg", gray[y:y+h,x:x+w])
 
         cv2.imshow('frame',img)
     #wait for 100 miliseconds 
     if cv2.waitKey(100) & 0xFF == ord('q'):
         break
-    # break if the sample number is morethan 20
-    elif sampleNum>25:
+    # break if the sample number is more than 99
+    elif sampleNum>99:
         break
 cam.release()
 cv2.destroyAllWindows()
