@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
-detector= cv2.CascadeClassifier("haarcascade_frontalface_default.xml");
+detector= cv2.CascadeClassifier("E:\\Conda Projects\\FD\\haarcascade_frontalface_default.xml")
 
 def getImagesAndLabels(path):
     #get the path of all the files in the folder
@@ -32,4 +32,4 @@ def getImagesAndLabels(path):
 
 faces,Ids = getImagesAndLabels('E:\\Conda Projects\\FD\\Dataset')
 recognizer.train(faces, np.array(Ids))
-recognizer.save('trainer/trainer.yml' )
+recognizer.save('E:\\Conda Projects\\FD\\trainer\\trainer.yml' )
